@@ -192,10 +192,7 @@ class SWA(Optimizer):
                         "SWA wasn't applied to param {}; skipping it".format(p))
                     continue
                 buf = param_state['swa_buffer']
-                tmp = torch.empty_like(p.data)
-                tmp.copy_(p.data)
                 p.data.copy_(buf)
-                buf.copy_(tmp)
 
     def step(self, closure=None):
         r"""Performs a single optimization step.
